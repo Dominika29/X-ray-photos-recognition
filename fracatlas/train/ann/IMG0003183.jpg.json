@@ -1,0 +1,157 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14183419,
+            "tagId": 28477,
+            "name": "leg",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.304Z",
+            "updatedAt": "2024-01-03T13:54:02.304Z"
+        },
+        {
+            "id": 14183420,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.304Z",
+            "updatedAt": "2024-01-03T13:54:02.304Z"
+        },
+        {
+            "id": 14183421,
+            "tagId": 28484,
+            "name": "fracture_count",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.304Z",
+            "updatedAt": "2024-01-03T13:54:02.304Z"
+        },
+        {
+            "id": 14183422,
+            "tagId": 28487,
+            "name": "oblique",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.304Z",
+            "updatedAt": "2024-01-03T13:54:02.304Z"
+        }
+    ],
+    "size": {
+        "height": 454,
+        "width": 373
+    },
+    "objects": [
+        {
+            "id": 101210143,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.307Z",
+            "updatedAt": "2024-01-03T13:54:02.307Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        154,
+                        327
+                    ],
+                    [
+                        183,
+                        305
+                    ],
+                    [
+                        183,
+                        274
+                    ],
+                    [
+                        189,
+                        251
+                    ],
+                    [
+                        186,
+                        222
+                    ],
+                    [
+                        176,
+                        222
+                    ],
+                    [
+                        175,
+                        203
+                    ],
+                    [
+                        160,
+                        220
+                    ],
+                    [
+                        158,
+                        185
+                    ],
+                    [
+                        151,
+                        189
+                    ],
+                    [
+                        147,
+                        206
+                    ],
+                    [
+                        133,
+                        175
+                    ],
+                    [
+                        130,
+                        177
+                    ],
+                    [
+                        146,
+                        246
+                    ],
+                    [
+                        139,
+                        253
+                    ],
+                    [
+                        146,
+                        312
+                    ],
+                    [
+                        149,
+                        312
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101210142,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:02.306Z",
+            "updatedAt": "2024-01-03T13:54:02.306Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        130,
+                        175
+                    ],
+                    [
+                        189,
+                        327
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14181619,
+            "tagId": 28477,
+            "name": "leg",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181620,
+            "tagId": 28478,
+            "name": "hip",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181621,
+            "tagId": 28480,
+            "name": "mixed",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181622,
+            "tagId": 28481,
+            "name": "hardware",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181623,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181624,
+            "tagId": 28484,
+            "name": "fracture_count",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        },
+        {
+            "id": 14181625,
+            "tagId": 28485,
+            "name": "frontal",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.457Z",
+            "updatedAt": "2024-01-03T13:53:08.457Z"
+        }
+    ],
+    "size": {
+        "height": 454,
+        "width": 373
+    },
+    "objects": [
+        {
+            "id": 101209495,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.458Z",
+            "updatedAt": "2024-01-03T13:53:08.458Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        89,
+                        175
+                    ],
+                    [
+                        100,
+                        189
+                    ],
+                    [
+                        102,
+                        210
+                    ],
+                    [
+                        111,
+                        195
+                    ],
+                    [
+                        108,
+                        179
+                    ],
+                    [
+                        92,
+                        170
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101209494,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.458Z",
+            "updatedAt": "2024-01-03T13:53:08.458Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        89,
+                        170
+                    ],
+                    [
+                        111,
+                        210
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

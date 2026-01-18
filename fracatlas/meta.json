@@ -1,0 +1,131 @@
+{
+    "classes": [
+        {
+            "title": "fractured",
+            "shape": "any",
+            "color": "#8A830F",
+            "geometry_config": {},
+            "id": 6510281,
+            "hotkey": ""
+        }
+    ],
+    "tags": [
+        {
+            "name": "fracture_count",
+            "value_type": "none",
+            "color": "#8A160F",
+            "id": 28484,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "fractured",
+            "value_type": "none",
+            "color": "#7D8A0F",
+            "id": 28483,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "frontal",
+            "value_type": "none",
+            "color": "#8A0F6B",
+            "id": 28485,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "hand",
+            "value_type": "none",
+            "color": "#8A0F69",
+            "id": 28476,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "hardware",
+            "value_type": "none",
+            "color": "#390F8A",
+            "id": 28481,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "hip",
+            "value_type": "none",
+            "color": "#680F8A",
+            "id": 28478,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "lateral",
+            "value_type": "none",
+            "color": "#8A0F7C",
+            "id": 28486,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "leg",
+            "value_type": "none",
+            "color": "#8A0F80",
+            "id": 28477,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "mixed",
+            "value_type": "none",
+            "color": "#8A7B0F",
+            "id": 28480,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "multiscan",
+            "value_type": "none",
+            "color": "#0F8A50",
+            "id": 28482,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "oblique",
+            "value_type": "none",
+            "color": "#0F7F8A",
+            "id": 28487,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        },
+        {
+            "name": "shoulder",
+            "value_type": "none",
+            "color": "#0F308A",
+            "id": 28479,
+            "hotkey": "",
+            "applicable_type": "all",
+            "classes": []
+        }
+    ],
+    "projectType": "images",
+    "projectSettings": {
+        "multiView": {
+            "enabled": false,
+            "tagName": null,
+            "tagId": null,
+            "isSynced": false
+        }
+    }
+}

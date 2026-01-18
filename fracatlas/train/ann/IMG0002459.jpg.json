@@ -1,0 +1,149 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14181656,
+            "tagId": 28477,
+            "name": "leg",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.463Z",
+            "updatedAt": "2024-01-03T13:53:08.463Z"
+        },
+        {
+            "id": 14181657,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.463Z",
+            "updatedAt": "2024-01-03T13:53:08.463Z"
+        },
+        {
+            "id": 14181658,
+            "tagId": 28484,
+            "name": "fracture_count",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.463Z",
+            "updatedAt": "2024-01-03T13:53:08.463Z"
+        },
+        {
+            "id": 14181659,
+            "tagId": 28486,
+            "name": "lateral",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.463Z",
+            "updatedAt": "2024-01-03T13:53:08.463Z"
+        }
+    ],
+    "size": {
+        "height": 454,
+        "width": 373
+    },
+    "objects": [
+        {
+            "id": 101209517,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.464Z",
+            "updatedAt": "2024-01-03T13:53:08.464Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        193,
+                        296
+                    ],
+                    [
+                        208,
+                        285
+                    ],
+                    [
+                        214,
+                        271
+                    ],
+                    [
+                        214,
+                        257
+                    ],
+                    [
+                        220,
+                        260
+                    ],
+                    [
+                        227,
+                        266
+                    ],
+                    [
+                        233,
+                        238
+                    ],
+                    [
+                        224,
+                        226
+                    ],
+                    [
+                        217,
+                        233
+                    ],
+                    [
+                        198,
+                        252
+                    ],
+                    [
+                        194,
+                        265
+                    ],
+                    [
+                        196,
+                        269
+                    ],
+                    [
+                        189,
+                        281
+                    ],
+                    [
+                        185,
+                        293
+                    ],
+                    [
+                        192,
+                        289
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101209516,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:08.463Z",
+            "updatedAt": "2024-01-03T13:53:08.463Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        185,
+                        226
+                    ],
+                    [
+                        233,
+                        296
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}
