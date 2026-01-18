@@ -9,9 +9,7 @@
 	  <p align="center">
    Convolutional Neural Network
    </p>
-    <p align="center">
-   <b>course:Poznań University of Technology</b>
-	</p>
+
 
 
 ## Table of contents
