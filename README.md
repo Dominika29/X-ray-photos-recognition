@@ -67,3 +67,8 @@ System Output: The algorithm produces a probability vector. For instance, a resu
 8.5% probability that the image is normal.
 
 ## Proof of concept
+For this project PyTorch library was chosen.
+
+Steps:
+ - ##Training the model:
+
