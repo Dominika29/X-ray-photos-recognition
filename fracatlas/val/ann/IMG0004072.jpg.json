@@ -1,0 +1,150 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14183985,
+            "tagId": 28476,
+            "name": "hand",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.125Z",
+            "updatedAt": "2024-01-03T13:54:21.125Z"
+        },
+        {
+            "id": 14183986,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.125Z",
+            "updatedAt": "2024-01-03T13:54:21.125Z"
+        },
+        {
+            "id": 14183987,
+            "tagId": 28485,
+            "name": "frontal",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.125Z",
+            "updatedAt": "2024-01-03T13:54:21.125Z"
+        }
+    ],
+    "size": {
+        "height": 373,
+        "width": 454
+    },
+    "objects": [
+        {
+            "id": 101210319,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.130Z",
+            "updatedAt": "2024-01-03T13:54:21.130Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        232,
+                        141
+                    ],
+                    [
+                        224,
+                        175
+                    ],
+                    [
+                        254,
+                        157
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101210318,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.129Z",
+            "updatedAt": "2024-01-03T13:54:21.129Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        224,
+                        141
+                    ],
+                    [
+                        254,
+                        175
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101210317,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.127Z",
+            "updatedAt": "2024-01-03T13:54:21.127Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        291,
+                        235
+                    ],
+                    [
+                        280,
+                        245
+                    ],
+                    [
+                        288,
+                        254
+                    ],
+                    [
+                        299,
+                        246
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101210316,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:54:21.126Z",
+            "updatedAt": "2024-01-03T13:54:21.126Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        280,
+                        235
+                    ],
+                    [
+                        299,
+                        254
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

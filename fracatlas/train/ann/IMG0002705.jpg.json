@@ -1,0 +1,105 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14182966,
+            "tagId": 28477,
+            "name": "leg",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.697Z",
+            "updatedAt": "2024-01-03T13:53:46.697Z"
+        },
+        {
+            "id": 14182967,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.697Z",
+            "updatedAt": "2024-01-03T13:53:46.697Z"
+        },
+        {
+            "id": 14182968,
+            "tagId": 28484,
+            "name": "fracture_count",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.697Z",
+            "updatedAt": "2024-01-03T13:53:46.697Z"
+        },
+        {
+            "id": 14182969,
+            "tagId": 28487,
+            "name": "oblique",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.697Z",
+            "updatedAt": "2024-01-03T13:53:46.697Z"
+        }
+    ],
+    "size": {
+        "height": 454,
+        "width": 373
+    },
+    "objects": [
+        {
+            "id": 101210003,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.699Z",
+            "updatedAt": "2024-01-03T13:53:46.699Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        179,
+                        216
+                    ],
+                    [
+                        188,
+                        235
+                    ],
+                    [
+                        197,
+                        224
+                    ],
+                    [
+                        183,
+                        205
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101210002,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:53:46.698Z",
+            "updatedAt": "2024-01-03T13:53:46.698Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        179,
+                        205
+                    ],
+                    [
+                        197,
+                        235
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

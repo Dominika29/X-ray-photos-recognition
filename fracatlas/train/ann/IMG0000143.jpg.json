@@ -1,0 +1,136 @@
+{
+    "description": "",
+    "tags": [
+        {
+            "id": 14179167,
+            "tagId": 28476,
+            "name": "hand",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179168,
+            "tagId": 28479,
+            "name": "shoulder",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179169,
+            "tagId": 28480,
+            "name": "mixed",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179170,
+            "tagId": 28483,
+            "name": "fractured",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179171,
+            "tagId": 28484,
+            "name": "fracture_count",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179172,
+            "tagId": 28485,
+            "name": "frontal",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        },
+        {
+            "id": 14179173,
+            "tagId": 28486,
+            "name": "lateral",
+            "value": null,
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.863Z",
+            "updatedAt": "2024-01-03T13:51:49.863Z"
+        }
+    ],
+    "size": {
+        "height": 2880,
+        "width": 2304
+    },
+    "objects": [
+        {
+            "id": 101208677,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.865Z",
+            "updatedAt": "2024-01-03T13:51:49.865Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        1627,
+                        836
+                    ],
+                    [
+                        1696,
+                        931
+                    ],
+                    [
+                        1788,
+                        900
+                    ],
+                    [
+                        1769,
+                        760
+                    ],
+                    [
+                        1658,
+                        758
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 101208676,
+            "classId": 6510281,
+            "objectId": null,
+            "description": "",
+            "geometryType": "rectangle",
+            "labelerLogin": "inbox@datasetninja.com",
+            "createdAt": "2024-01-03T13:51:49.864Z",
+            "updatedAt": "2024-01-03T13:51:49.864Z",
+            "tags": [],
+            "classTitle": "fractured",
+            "points": {
+                "exterior": [
+                    [
+                        1627,
+                        758
+                    ],
+                    [
+                        1788,
+                        931
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}
