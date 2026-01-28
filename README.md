@@ -9,9 +9,7 @@
 	  <p align="center">
    Convolutional Neural Network
    </p>
-    <p align="center">
-   <b>course:Poznań University of Technology</b>
-	</p>
+
 
 
 ## Table of contents
@@ -26,18 +24,18 @@
 The objective of this project is the automated classification of bone fractures in X-ray images of upper and lower extremities. This is achieved through the execution of a CNN (Convolutional Neural Network) - a deep learning architecture specifically engineered to extract spatial hierarchies from medical imaging data.
 
 - ### Input 
-		Radiographic images (X-rays) of limbs, including arms, and legs.
+  Radiographic images (X-rays) of limbs, including arms, and legs.
   All data is standardized to greyscale with a uniform resolution (e.g., 128x128).
   The model categorizes images into two distinct labels:
   fractured, normal
   
 - ### Intended results
-		The system aims to provide an automated diagnostic suggestion based on user-provided X-rays.
+  The system aims to provide an automated diagnostic suggestion based on user-provided X-rays.
   E.g., when a scan of a fractured radius is processed,
   the system should accurately assign the 'fractured' label.
   
 - ### Motivation 
-		Leveraging neural networks for bone fracture detection represents a significant 
+  Leveraging neural networks for bone fracture detection represents a significant 
   advancement in digital healthcare. This technology streamlines clinical 
   workflows, assists radiologists in high-pressure environments, and 
   minimizes the diagnostic "oversight" rate in emergency medicine.
@@ -69,3 +67,8 @@ System Output: The algorithm produces a probability vector. For instance, a resu
 8.5% probability that the image is normal.
 
 ## Proof of concept
+For this project PyTorch library was chosen.
+
+Steps:
+ - ##Training the model:
+
