@@ -10,7 +10,7 @@ import h5py
 from PIL import Image, ImageFile
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score 
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score,confusion_matrix, ConfusionMatrixDisplay
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.manual_seed(42)
@@ -112,6 +112,8 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 train_transform = torchvision.transforms.Compose([
 torchvision.transforms.Resize(size=(224,224)),
 torchvision.transforms.RandomHorizontalFlip(),
+torchvision.transforms.RandomRotation(15),
+torchvision.transforms.ColorJitter(brightness=0.2, contrast=0.2),
 torchvision.transforms.ToTensor(),
 torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                     std=[0.229, 0.224, 0.225])
@@ -266,40 +268,52 @@ def evaluate_model(model, dataloader, criterion):
     
     with torch.no_grad():
         for eval_step, (inputs, targets) in enumerate(dataloader):
-            outputs = model(inputs.to(device))
-            targets = targets.to(device).view(-1, 1).float() 
+            inputs = inputs.to(device)
+            targets = targets.to(device).view(-1, 1).float()
             
-            loss = criterion(outputs.to(device), targets.to(device))
+            outputs = model(inputs)
+            loss = criterion(outputs, targets)
             running_loss += loss.item() * inputs.size(0)
-            preds = torch.sigmoid(outputs)
-            preds = (preds > 0.5).float()
             
-            correct += (preds.to(device) == targets.to(device)).sum().item()
+            # Obliczanie predykcji (próg 0.5 dla Sigmoidy)
+            preds = (torch.sigmoid(outputs) > 0.5).float()
+            
+            correct += (preds == targets).sum().item()
             total += targets.size(0)
             
+            # Zbieranie danych do macierzy (przenosimy na CPU i do numpy)
             all_labels.extend(targets.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
             
             if eval_step % 20 == 0:
-                print(f'Validation Loss: {(running_loss / total):.4f}, Accuracy: {(correct / total):.4f}')
+                print(f'Validation Step: {eval_step}, Accuracy: {(correct / total):.4f}')
 
-                show_preds(model)
-    
     epoch_loss = running_loss / total
     epoch_accuracy = correct / total
     
-    accuracy = accuracy_score(all_labels, all_preds)
-    precision = precision_score(all_labels, all_preds)
-    recall = recall_score(all_labels, all_preds)
-    f1 = f1_score(all_labels, all_preds)
+    # --- GENEROWANIE I WYŚWIETLANIE MACIERZY POMYŁEK ---
+    cm = confusion_matrix(all_labels, all_preds)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=CLASS_NAMES)
+    
+    fig, ax = plt.subplots(figsize=(8, 6))
+    disp.plot(ax=ax, cmap='Blues', values_format='d')
+    plt.title(f'Macierz Pomyłek - Model: {model.__class__.__name__}')
+    plt.show()
+    # --------------------------------------------------
+    
+    # Obliczanie dodatkowych metryk
+    precision = precision_score(all_labels, all_preds, zero_division=0)
+    recall = recall_score(all_labels, all_preds, zero_division=0)
+    f1 = f1_score(all_labels, all_preds, zero_division=0)
     roc_auc = roc_auc_score(all_labels, all_preds)
 
-    print(f'\n\nValidation Loss: {epoch_loss:.4f}, Accuracy: {epoch_accuracy:.4f}')
+    print(f'\nFinal Validation Loss: {epoch_loss:.4f}, Accuracy: {epoch_accuracy:.4f}')
     
-    return epoch_loss, epoch_accuracy ,accuracy, precision, recall, f1, roc_auc
+    return epoch_loss, epoch_accuracy, epoch_accuracy, precision, recall, f1, roc_auc
 
 def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
-    criterion = torch.nn.BCEWithLogitsLoss()
+    weight_for_fractured = torch.tensor([1.0]).to(device)
+    criterion = torch.nn.BCEWithLogitsLoss(pos_weight=weight_for_fractured)
     total_epochs = 0
     
     learning_rate = 3e-5
@@ -345,8 +359,37 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
     # Save the one with the best performance
     torch.save(model.state_dict(), f'{model_name}.hd5')
 
+def balance_dataset(base_path):
+    # Lista podfolderów do zbalansowania: główny i testowy
+    folders_to_check = [base_path, base_path / 'test']
+    
+    for folder in folders_to_check:
+        if not folder.exists():
+            continue
+            
+        counts = {c: len(os.listdir(folder / c)) for c in CLASS_NAMES}
+        min_count = min(counts.values())
+        
+        print(f"\nBalansowanie folderu: {folder}")
+        for c in CLASS_NAMES:
+            path = folder / c
+            images = os.listdir(path)
+            if len(images) > min_count:
+                to_remove = random.sample(images, len(images) - min_count)
+                for img in to_remove:
+                    os.remove(path / img)
+            print(f" Klasa {c}: pozostało {len(os.listdir(path))} zdjęć.")
+
+
 if __name__ == "__main__":
     main()
-    run_model(resnet, dl_train, dl_test, "resnet50", .85)
-    run_model(vgg16, dl_train, dl_test, "vgg16", .85)
-    run_model(dense_net, dl_train, dl_test, "dense_net", .85)
+    balance_dataset(output_dir)
+    balance_dataset(output_dir / 'test')
+    train_dataset = BoneXRayDataset(train_dirs, CLASS_NAMES, train_transform)
+    test_dataset = BoneXRayDataset(test_dirs, CLASS_NAMES, test_transform)
+    
+    dl_train = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    dl_test = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    run_model(resnet, dl_train, dl_test, "resnet50", .80)
+    run_model(vgg16, dl_train, dl_test, "vgg16", .80)
+    run_model(dense_net, dl_train, dl_test, "dense_net", .80)
