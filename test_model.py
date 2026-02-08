@@ -7,11 +7,8 @@ import pandas as pd
 from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-# Importujemy klasę Dataset z Twojego głównego pliku
-# Upewnij się, że test_model.py jest w tym samym folderze co main.py
 from main import BoneXRayDataset, CLASS_NAMES, test_transform
 
-# Konfiguracja urządzenia
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def load_model(model_name, model_type):
@@ -29,7 +26,6 @@ def load_model(model_name, model_type):
         num_ftrs = model.classifier.in_features
         model.classifier = torch.nn.Linear(num_ftrs, 1)
     
-    # Wczytanie wag (state_dict)
     model_path = f"{model_name}.hd5"
     if os.path.exists(model_path):
         model.load_state_dict(torch.load(model_path, map_location=device))
@@ -64,7 +60,6 @@ def run_final_test(model, dataloader):
     return metrics
 
 if __name__ == "__main__":
-    # 1. Przygotowanie danych testowych (używając ścieżek z Twojego projektu)
     output_dir = Path("./output")
     test_dirs = {
         'not fractured': output_dir / 'test' / 'not fractured',
@@ -74,7 +69,6 @@ if __name__ == "__main__":
     test_dataset = BoneXRayDataset(test_dirs, CLASS_NAMES, test_transform)
     dl_test = DataLoader(test_dataset, batch_size=6, shuffle=False)
     
-    # 2. Lista modeli do sprawdzenia
     models_to_test = [
         ('resnet50', 'resnet50'),
         ('vgg16', 'vgg16'),
@@ -92,14 +86,11 @@ if __name__ == "__main__":
             m_metrics['Model'] = name
             results.append(m_metrics)
 
-    # 3. Wyświetlenie wyników w tabeli
     if results:
         df = pd.DataFrame(results)
-        # Reorganizacja kolumn dla czytelności
         df = df[['Model', 'Accuracy', 'Precision', 'Recall', 'F1']]
         print("\nOstateczne wyniki porównawcze:")
         print(df.to_string(index=False))
         
-        # Opcjonalnie zapis do CSV
         df.to_csv('porownanie_modeli.csv', index=False)
         print("\nWyniki zostały zapisane do pliku porownanie_modeli.csv")
