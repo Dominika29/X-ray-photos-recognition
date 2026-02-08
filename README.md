@@ -103,9 +103,18 @@ Macierz pomyłek dla tej architektury wygląda następująco:
 * Recall / Sensitivity (Czułość): ~74,0%
 * Zdolność modelu do wykrywania złamań. Oznacza to, że model wykrywa 3 na 4 złamania. W diagnostyce medycznej jest to najważniejsza metryka – dążymy do jej maksymalizacji, aby nie wypisać ze szpitala pacjenta z nierozpoznanym urazem.
 * Precision (Precyzja): ~85,8%
-* 
-Jeśli model mówi „złamanie”, ma rację w prawie 86% przypadków. To wysoki wynik, który buduje zaufanie diagnosty do sugestii systemu.
+ 
+Jeśli model mówi „złamanie”, ma rację w prawie 86% przypadków.
 Macierz pokazuje, że zbiór testowy był relatywnie dobrze zbalansowany (342 zdjęcia ze złamaniami vs 342 zdjęcia zdrowe), co sprawia, że metryka Accuracy jest w tym przypadku wiarygodna.
-Steps:
- - ##Training the model:
 
+# Testy
+Aby przetestować działanie modelu przygotowaliśmy plik single_photo_test.py. Po uruchomieniu pliku zostajemy poproszeni o wybranie zdjęcia RTG, wybrany obraz zostaje dopasowany do modelu (224x224, greyscale), następnie jest klasyfikowany zgodnie z resnet50.hd5. 
+Wynik analizy prezentowany jest w formie czytelnego okna graficznego (matplotlib), które zawiera:
+* Oryginalny obraz: Wyświetlony w skali szarości po procesie normalizacji.
+* Etykietę diagnostyczną: Dynamiczny baner informujący o wyniku (FRACTURED / NOT FRACTURED).
+* Wskaźnik pewności (Confidence): Procentowe prawdopodobieństwo przypisania do danej klasy, wyliczone na podstawie funkcji aktywacji Sigmoid.
+* Kodowanie kolorystyczne: Kolor tła komunikatu (zielony/czerwony) pozwala na błyskawiczną identyfikację wykrytego urazu.
+Przykłady użycia:
+![1](p1.png)
+![2](p2.png)
+![3](p3.png)
