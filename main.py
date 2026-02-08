@@ -275,7 +275,6 @@ def evaluate_model(model, dataloader, criterion):
             loss = criterion(outputs, targets)
             running_loss += loss.item() * inputs.size(0)
             
-            # Obliczanie predykcji (próg 0.5 dla Sigmoidy)
             preds = (torch.sigmoid(outputs) > 0.5).float()
             
             correct += (preds == targets).sum().item()
@@ -323,13 +322,12 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
     while(True):
         print(f"\nCurrent Epoch: {total_epochs+1}")
 
-        # TRAIN MODEL
+
         print("Training Model...")
         train_loss, train_accuracy = train_model(model, dl_train, criterion, optimizer)
         print("Model Training Complete")
 
-        # EVALUATE MODEL
-        print("Validating Model...")
+        # EVALUATE MODEL        print("Validating Model...")
         val_loss, val_accuracy, accuracy, precision, recall, f1, roc_auc = evaluate_model(
             model, dl_test, criterion
         )
@@ -341,7 +339,6 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
         
         total_epochs += 1 # increment epochs
 
-        # Save the best model
         if val_accuracy > best_accuracy:
             print(f'\n{model_name.upper()} Model performance condition met')
             
@@ -355,8 +352,6 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
             )
             break
 
-
-    # Save the one with the best performance
     torch.save(model.state_dict(), f'{model_name}.hd5')
 
 def balance_dataset(base_path):
@@ -391,5 +386,3 @@ if __name__ == "__main__":
     dl_train = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     dl_test = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     run_model(resnet, dl_train, dl_test, "resnet50", .80)
-    run_model(vgg16, dl_train, dl_test, "vgg16", .80)
-    run_model(dense_net, dl_train, dl_test, "dense_net", .80)

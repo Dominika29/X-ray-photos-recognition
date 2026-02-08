@@ -132,3 +132,6 @@ dmypy.json
 .pyre/
 
 *.hd5
+bone_model_custom.pth
+*.hd5
+output/
