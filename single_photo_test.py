@@ -5,7 +5,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 from matplotlib import pyplot as plt
-from main import resnet, vgg16, dense_net, device, test_transform, CLASS_NAMES
+from main import resnet, device, test_transform, CLASS_NAMES
 
 def select_file():
     root = tk.Tk()

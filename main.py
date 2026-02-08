@@ -195,27 +195,11 @@ image = image * std + mean
 image = np.clip(image, 0., 1.)
 plt.imshow(image)
 
-print(f"The following image has the following dimensions: {image.shape}\n")
-
 resnet = torchvision.models.resnet50(weights='DEFAULT')
 num_filters = resnet.fc.in_features
 resnet.fc = torch.nn.Linear(num_filters, 1) 
 resnet = resnet.to(device)
 print(resnet) 
-
-vgg16 = torchvision.models.vgg16(pretrained=True)
-num_ftrs = vgg16.classifier[6].in_features
-vgg16.classifier[6] = torch.nn.Linear(num_ftrs, 1) 
-vgg16 = vgg16.to(device)
-
-print(vgg16)
-
-dense_net = torchvision.models.densenet121(pretrained=True)
-num_ftrs = dense_net.classifier.in_features
-dense_net.classifier = torch.nn.Linear(num_ftrs, 1) 
-dense_net = dense_net.to(device)
-
-print(dense_net)
 
 def show_preds(model):
     model.eval()
@@ -280,7 +264,6 @@ def evaluate_model(model, dataloader, criterion):
             correct += (preds == targets).sum().item()
             total += targets.size(0)
             
-            # Zbieranie danych do macierzy (przenosimy na CPU i do numpy)
             all_labels.extend(targets.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
             
@@ -327,7 +310,6 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
         train_loss, train_accuracy = train_model(model, dl_train, criterion, optimizer)
         print("Model Training Complete")
 
-        # EVALUATE MODEL        print("Validating Model...")
         val_loss, val_accuracy, accuracy, precision, recall, f1, roc_auc = evaluate_model(
             model, dl_test, criterion
         )
@@ -337,7 +319,7 @@ def run_model(model, dl_train, dl_test, model_name: str, best_accuracy: float):
         print(f"Train Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.4f}")
         print(f"Val Loss: {val_loss:.4f}, Val Accuracy: {val_accuracy:.4f}")
         
-        total_epochs += 1 # increment epochs
+        total_epochs += 1
 
         if val_accuracy > best_accuracy:
             print(f'\n{model_name.upper()} Model performance condition met')
