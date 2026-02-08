@@ -5,6 +5,8 @@
 
   <p align="center">
 	  Dominika Czerwińska 159557
+	</p>
+  <p align="center">
 	  Bartosz Cywiński 159467
 	</p>
 	  <p align="center">
