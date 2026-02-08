@@ -6,6 +6,9 @@
   <p align="center">
 	  Dominika Czerwińska 159557
 	</p>
+  <p align="center">
+	  Bartosz Cywiński 159467
+	</p>
 	  <p align="center">
    Convolutional Neural Network
    </p>
@@ -14,61 +17,104 @@
 
 ## Table of contents
 
-- [About](#about)
-- [State of art](#state-of-art)
-- [Description of the solution](#description-of-the-solution)
+- [Opis Projektu](#opis-projektu)
+- [Metody rozwiązania problemu](#metody-rozwiązania-problemu)
+- [Opis Wybranej Koncepcji](#opis-wybranej-koncepcji)
 - [Proof of concept](#proof-of-concept)
 
 
-## About
-The objective of this project is the automated classification of bone fractures in X-ray images of upper and lower extremities. This is achieved through the execution of a CNN (Convolutional Neural Network) - a deep learning architecture specifically engineered to extract spatial hierarchies from medical imaging data.
+## Opis Projektu
+Problemem, na którym oparliśmy nasz projekt jest rozpoznawanie złamań kończyn górnych oraz dolnych. Rozpoznanie przebiega poprzez ocenę zdjęcia rentgenowskiego. Do rozwiązania problemu użyliśmy konwolucyjnej sieci neuronowej (CNN - Convolutional Neural Network). Konwolucyjne sieci neuronowe to rodzaj algorytmów głębokiego uczenia, które wykorzystują operację splotu do automatycznego wykrywania i wyodrębniania istotnych cech z danych o strukturze siatki, takich jak obrazy. Dzięki specyficznej architekturze potrafią one rozpoznawać wzorce wizualne (np. krawędzie, kształty czy obiekty) przy zachowaniu niezmienności względem ich przesunięcia w przestrzeni.
 
-- ### Input 
-  Radiographic images (X-rays) of limbs, including arms, and legs.
-  All data is standardized to greyscale with a uniform resolution (e.g., 128x128).
-  The model categorizes images into two distinct labels:
-  fractured, normal
+- ### Wejście 
+  Zdjęcia rentgenowskie (X-ray) kończyn górnych oraz dolnych. Każde zdjęcie jest standaryzowane do odcieni szarości o jednolitej rozdzielczości (224x224).
+  Model klasyfikuje zdjęcia do dwóch kategorii: złamanie (fractured) lub nie-złamanie (not fractured).
   
-- ### Intended results
-  The system aims to provide an automated diagnostic suggestion based on user-provided X-rays.
-  E.g., when a scan of a fractured radius is processed,
-  the system should accurately assign the 'fractured' label.
+- ### Wyjście
+  Poprawna diagnostyka prostych złamań, poprzez odpowiednio dobrany opis zdjęć rentgenowskich.
   
-- ### Motivation 
-  Leveraging neural networks for bone fracture detection represents a significant 
-  advancement in digital healthcare. This technology streamlines clinical 
-  workflows, assists radiologists in high-pressure environments, and 
-  minimizes the diagnostic "oversight" rate in emergency medicine.
+- ### Motywacja 
+  Technologia ta znacznie usprawniłaby przepływ pracy w placówkach medycznych, stanowiłaby wsparcie dla radiologów w warunkach wysokiej
+  presji oraz zminimalizowała odsetek „przeoczeń” diagnostycznych zwłaszcza na oddziałach typu SOR.
   
-## State of art
-| **Machine Learning Methodology** | **Overview** | **Advantages** | **Disadvantages** |
+## Metody rozwiązania problemu
+| **Metodologia uczenia maszynowego** | **Opis ogólny** | **Zalety** | **Wady** |
 |:---:|:---:|:---:|:---:|
-| **CNN** (Convolutional Neural Networks) | Specialized layers automatically identify spatial hierarchies and patterns (like bone cracks) directly from raw pixels. | - Superior accuracy in medical imaging <br>- Automated feature discovery <br>- High efficiency via weight sharing | - High demand for GPU resources <br>- Performance is dependent on image quality |
-| **DNN** (Deep Neural Networks) | Comprises multiple dense, fully connected layers that map complex non-linear relationships within data. | - Versatile for diverse data types <br>- Capable of building highly complex models | - Ignores spatial pixel relationships <br>- Extremely data-intensive <br>- Longer training duration |
-| **Traditional Feature Extraction** | Manually defined descriptors (e.g., bone density, edge sharpness) are fed into a shallow classifier. | - Low computational overhead <br>- High transparency and interpretability <br>- Works well with limited datasets | - Accuracy is capped by human feature selection <br>- Fails to capture subtle visual nuances |
+| **CNN** (Konwolucyjne sieci neuronowe) | Wyspecjalizowane warstwy automatycznie identyfikują hierarchie przestrzenne i wzorce (np. pęknięcia kości) bezpośrednio z surowych pikseli. | Najwyższa dokładność w obrazowaniu medycznym <br>Automatyczne wyodrębnianie cech <br> Wysoka wydajność dzięki współdzieleniu wag | Duże zapotrzebowanie na zasoby GPU <br>Wydajność uzależniona od jakości obrazu |
+| **DNN** (Głębokie sieci neuronowe) | Składają się z wielu gęstych, w pełni połączonych warstw, które mapują złożone nieliniowe zależności w danych. | Wszechstronność dla różnych typów danych <br>Możliwość budowania wysoce złożonych modeli | gnorują przestrzenne relacje między pikselami <br> Ekstremalnie czaso- i danochłonne <br> Dłuższy czas trenowania|
+| **Tradycyjna ekstrakcja cech** | Ręcznie zdefiniowane deskryptory (np. gęstość kości, ostrość krawędzi) są wprowadzane do klasyfikatora płytkiego. | Niskie zapotrzebowanie na moc obliczeniową <br> Wysoka przejrzystość i interpretowalność <br>Dobrze sprawdza się przy ograniczonych zbiorach danych |Dokładność ograniczona przez dobór cech przez człowieka <br> Nie wychwytuje subtelnych niuansów wizualnych |
 
-## Description of the solution
-As highlighted in the comparison, convolutional neural networks are the industry standard for computer vision. The core mechanism involves applying various kernels (filters) to the input data to identify diagnostic markers, such as disruptions in bone cortex or alignment.
+## Opis Wybranej Koncepcji
+Wybranym rozwiązaniem jest konwolucyjna sieć neuronowa (CNN) wykorzystująca architekturę ResNet-50 oraz technikę Transfer Learningu. 
+Podstawowym mechanizmem CNN jest stosowanie różnych jąder (filtrów) do danych wejściowych w celu zidentyfikowania markerów diagnostycznych, takich jak przerwania ciągłości kości czy zaburzenia osiowości.
 
-The network's deployment consists of the following stages:
+Zastosowanie tych sieci składa się z następujących etapów:
 
-Convolutional Layers: These act as feature detectors, scanning the X-ray for specific edges, shadows, and fracture patterns.
+- ###	Warstwy splotowe  i Pooling
+	Wykorzystano strukturę ResNet-50, która automatycznie ekstraktuje cechy wizualne. Warstwy splotowe identyfikują krawędzie i cienie,
+	a warstwy typu pooling redukują wymiarowość, zachowując kluczowe informacje o strukturze kości.
+	
+- ###	Warstwy gęste (Dense Layers)
+	Oryginalny klasyfikator sieci został zastąpiony warstwą torch.nn.Linear(num_filters, 1).
+	Jest to warstwa w pełni połączona, która agreguje cechy wypracowane przez model ResNet i sprowadza je do jednej wartości decyzyjnej.
 
-Max-Pooling Layers: These perform down-sampling to reduce data dimensionality while preserving the most critical diagnostic features.
+- ###   Wyjście Sigmoid (zamiast Softmax)
+	Ponieważ rozwiązujemy problem klasyfikacji binarnej (Fractured vs Not Fractured), na wyjściu sieci zastosowano funkcję aktywacji Sigmoid.
+	Mapuje ona wynik sieci na wartość z przedziału $(0, 1)$, reprezentującą prawdopodobieństwo wystąpienia klasy pozytywnej.
 
-Dense Layers: These fully connected layers aggregate the identified features to understand the overall context of the image.
+	### Dane
+	* Wykorzystany został publicznie dostępny zbiór danych (FracAtlas Dataset - 4,083 images which have been manually annotated for classification, localization and segmentation of bone fractures with the help of 2 expert radiologists and later validated by a medical officer), zawierający zdjęcia RTG.
 
-Softmax Output: This final stage calculates the probability distribution across the two classes (Fractured vs. Normal).
+ 	### Wynik systemu
+	Algorytm generuje skalar prawdopodobieństwa $P$. Interpretacja wyniku odbywa się następująco:
+ 	*	Jeśli $P > 0.5$ (próg odcięcia), system klasyfikuje obraz jako złamanie.
+	*	Wektor prawdopodobieństwa jest wyliczany jako $[P, 1-P]$. Przykładowo, wynik 0.915 oznacza 91,5% szans na złamanie oraz 8,5% szans na brak złamania
 
-System Output: The algorithm produces a probability vector. For instance, a result of [0.915, 0.085] translates to:
+  	### Procedura testowania
+	W kodzie zaimplementowaliśmy metryki: accuracy_score, precision_score, recall_score, f1_score oraz macierz pomyłek (Confusion Matrix). 
+System oblicza:
+*  Recall (Czułość): informuje, jaki procent faktycznych złamań został wykryty.
+*  Precision (Precyzja): mówi o tym, jak często diagnoza złamania jest trafna.
+*  F1-Score: Średnia harmoniczna precyzji i czułości, dająca pełny obraz stabilności modelu.
+*  AUC-ROC: Określa zdolność modelu do rozróżniania obu klas niezależnie od progu decyzyjnego.
+* Model jest oceniany na oddzielnym zbiorze danych (dl_test), którego nie widział podczas procesu uczenia. Pozwala to sprawdzić zdolność algorytmu do generalizacji wiedzy na nowe przypadki.
 
-91.5% probability that the image is fractured.
-
-8.5% probability that the image is normal.
+  	### Napotkane Problemy
+ 	* Jakość danych wejściowych: Model opiera się na obrazach o rozdzielczości 224x224 pikseli. W rzeczywistości medycznej zdjęcia RTG mają znacznie wyższą rozdzielczość; proces kompresji może prowadzić do utraty informacji o mikropęknięciach.
+	* Zróżnicowanie sprzętowe: Zdjęcia pochodzące z różnych aparatów RTG mogą różnić się kontrastem i poziomem szumów, co wymaga zastosowania zaawansowanej augmentacji danych (w kodzie użyto ColorJitter oraz RandomRotation).
+	* Dodaliśmy również balansowanie klas, z powodu nieproporcjonalnej liczby zdjęć kończyn złamanych do zdrowych - funkcja „balance_dataset” rozwiązuje ten problem i pozwala nam uniknąć stronniczości modelu.
 
 ## Proof of concept
-For this project PyTorch library was chosen.
+Po wstępnym przygotowaniu danych (balance_dataset, standaryzacja rozmiaru i barw) zaczęliśmy trenować model. Testowaliśmy ResNet50, Vgg16 oraz Dense_net, na podstawie wyników wybraliśmy pierwszą testowaną architekturę czyli ResNet50. 
+Macierz pomyłek dla tej architektury wygląda następująco:
+![Macierz Pomylek](RESNET50.png)
 
-Steps:
- - ##Training the model:
+* True Positives (TP): 253 - Model poprawnie zidentyfikował 253 przypadki złamań.
 
+* True Negatives (TN): 300 - Model poprawnie wskazał 300 przypadków braku złamania (norma).
+
+* False Positives (FP): 42 - Model błędnie zdiagnozował złamanie w 42 przypadkach, w których kość była zdrowa (tzw. fałszywy alarm).
+
+* False Negatives (FN): 89 - Model przeoczył złamanie w 89 przypadkach, klasyfikując je jako normę.
+
+### Na podstawie powyższych danych możemy wyliczyć skuteczność modelu:
+* Accuracy (Dokładność ogólna): ~80,8%
+* Suma poprawnych diagnoz (553) podzielona przez wszystkie przypadki (684). Wynik powyżej 80% jest solidną bazą dla Proof of Concept.
+* Recall / Sensitivity (Czułość): ~74,0%
+* Zdolność modelu do wykrywania złamań. Oznacza to, że model wykrywa 3 na 4 złamania. W diagnostyce medycznej jest to najważniejsza metryka – dążymy do jej maksymalizacji, aby nie wypisać ze szpitala pacjenta z nierozpoznanym urazem.
+* Precision (Precyzja): ~85,8%
+ 
+Jeśli model mówi „złamanie”, ma rację w prawie 86% przypadków.
+Macierz pokazuje, że zbiór testowy był relatywnie dobrze zbalansowany (342 zdjęcia ze złamaniami vs 342 zdjęcia zdrowe), co sprawia, że metryka Accuracy jest w tym przypadku wiarygodna.
+
+# Testy
+Aby przetestować działanie modelu przygotowaliśmy plik single_photo_test.py. Po uruchomieniu pliku zostajemy poproszeni o wybranie zdjęcia RTG, wybrany obraz zostaje dopasowany do modelu (224x224, greyscale), następnie jest klasyfikowany zgodnie z resnet50.hd5. 
+Wynik analizy prezentowany jest w formie czytelnego okna graficznego (matplotlib), które zawiera:
+* Oryginalny obraz: Wyświetlony w skali szarości po procesie normalizacji.
+* Etykietę diagnostyczną: Dynamiczny baner informujący o wyniku (FRACTURED / NOT FRACTURED).
+* Wskaźnik pewności (Confidence): Procentowe prawdopodobieństwo przypisania do danej klasy, wyliczone na podstawie funkcji aktywacji Sigmoid.
+* Kodowanie kolorystyczne: Kolor tła komunikatu (zielony/czerwony) pozwala na błyskawiczną identyfikację wykrytego urazu.
+Przykłady użycia:
+![1](p1.png)
+![2](p2.png)
+![3](p3.png)

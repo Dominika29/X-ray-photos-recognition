@@ -284,6 +284,7 @@ def evaluate_model(model, dataloader, criterion):
     # --------------------------------------------------
     
     # Obliczanie dodatkowych metryk
+    accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, zero_division=0)
     recall = recall_score(all_labels, all_preds, zero_division=0)
     f1 = f1_score(all_labels, all_preds, zero_division=0)
