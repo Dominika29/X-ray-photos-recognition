@@ -15,7 +15,7 @@
 
 
 
-## Table of contents
+## Spis treści
 
 - [Opis Projektu](#opis-projektu)
 - [Metody rozwiązania problemu](#metody-rozwiązania-problemu)
