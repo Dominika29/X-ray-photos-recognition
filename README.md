@@ -5,6 +5,7 @@
 
   <p align="center">
 	  Dominika Czerwińska 159557
+	  Bartosz Cywiński 159467
 	</p>
 	  <p align="center">
    Convolutional Neural Network
