@@ -89,6 +89,23 @@ Po wstępnym przygotowaniu danych (balance_dataset, standaryzacja rozmiaru i bar
 Macierz pomyłek dla tej architektury wygląda następująco:
 ![Macierz Pomylek](RESNET50.png)
 
+* True Positives (TP): 253 - Model poprawnie zidentyfikował 253 przypadki złamań.
+
+* True Negatives (TN): 300 - Model poprawnie wskazał 300 przypadków braku złamania (norma).
+
+* False Positives (FP): 42 - Model błędnie zdiagnozował złamanie w 42 przypadkach, w których kość była zdrowa (tzw. fałszywy alarm).
+
+* False Negatives (FN): 89 - Model przeoczył złamanie w 89 przypadkach, klasyfikując je jako normę.
+
+# Na podstawie powyższych danych możemy wyliczyć skuteczność modelu:
+* Accuracy (Dokładność ogólna): ~80,8%
+* Suma poprawnych diagnoz (553) podzielona przez wszystkie przypadki (684). Wynik powyżej 80% jest solidną bazą dla Proof of Concept.
+* Recall / Sensitivity (Czułość): ~74,0%
+* Zdolność modelu do wykrywania złamań. Oznacza to, że model wykrywa 3 na 4 złamania. W diagnostyce medycznej jest to najważniejsza metryka – dążymy do jej maksymalizacji, aby nie wypisać ze szpitala pacjenta z nierozpoznanym urazem.
+* Precision (Precyzja): ~85,8%
+* 
+Jeśli model mówi „złamanie”, ma rację w prawie 86% przypadków. To wysoki wynik, który buduje zaufanie diagnosty do sugestii systemu.
+Macierz pokazuje, że zbiór testowy był relatywnie dobrze zbalansowany (342 zdjęcia ze złamaniami vs 342 zdjęcia zdrowe), co sprawia, że metryka Accuracy jest w tym przypadku wiarygodna.
 Steps:
  - ##Training the model:
 
