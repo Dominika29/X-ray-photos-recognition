@@ -85,7 +85,9 @@ System oblicza:
 	* Dodaliśmy również balansowanie klas, z powodu nieproporcjonalnej liczby zdjęć kończyn złamanych do zdrowych - funkcja „balance_dataset” rozwiązuje ten problem i pozwala nam uniknąć stronniczości modelu.
 
 ## Proof of concept
-For this project PyTorch library was chosen.
+Po wstępnym przygotowaniu danych (balance_dataset, standaryzacja rozmiaru i barw) zaczęliśmy trenować model. Testowaliśmy ResNet50, Vgg16 oraz Dense_net, na podstawie wyników wybraliśmy pierwszą testowaną architekturę czyli ResNet50. 
+Macierz pomyłek dla tej architektury wygląda następująco:
+![Macierz Pomylek](RESNET50.png)
 
 Steps:
  - ##Training the model:
