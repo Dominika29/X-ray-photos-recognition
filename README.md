@@ -62,15 +62,15 @@ Zastosowanie tych sieci składa się z następujących etapów:
 	Ponieważ rozwiązujemy problem klasyfikacji binarnej (Fractured vs Not Fractured), na wyjściu sieci zastosowano funkcję aktywacji Sigmoid.
 	Mapuje ona wynik sieci na wartość z przedziału $(0, 1)$, reprezentującą prawdopodobieństwo wystąpienia klasy pozytywnej.
 
-	# Dane
+	### Dane
 	* Wykorzystany został publicznie dostępny zbiór danych (FracAtlas Dataset - 4,083 images which have been manually annotated for classification, localization and segmentation of bone fractures with the help of 2 expert radiologists and later validated by a medical officer), zawierający zdjęcia RTG.
 
- 	# Wynik systemu
+ 	### Wynik systemu
 	Algorytm generuje skalar prawdopodobieństwa $P$. Interpretacja wyniku odbywa się następująco:
  	*	Jeśli $P > 0.5$ (próg odcięcia), system klasyfikuje obraz jako złamanie.
 	*	Wektor prawdopodobieństwa jest wyliczany jako $[P, 1-P]$. Przykładowo, wynik 0.915 oznacza 91,5% szans na złamanie oraz 8,5% szans na brak złamania
 
-  	# Procedura testowania
+  	### Procedura testowania
 	W kodzie zaimplementowaliśmy metryki: accuracy_score, precision_score, recall_score, f1_score oraz macierz pomyłek (Confusion Matrix). 
 System oblicza:
 *  Recall (Czułość): informuje, jaki procent faktycznych złamań został wykryty.
@@ -79,7 +79,7 @@ System oblicza:
 *  AUC-ROC: Określa zdolność modelu do rozróżniania obu klas niezależnie od progu decyzyjnego.
 * Model jest oceniany na oddzielnym zbiorze danych (dl_test), którego nie widział podczas procesu uczenia. Pozwala to sprawdzić zdolność algorytmu do generalizacji wiedzy na nowe przypadki.
 
-  	# Napotkane Problemy
+  	### Napotkane Problemy
  	* Jakość danych wejściowych: Model opiera się na obrazach o rozdzielczości 224x224 pikseli. W rzeczywistości medycznej zdjęcia RTG mają znacznie wyższą rozdzielczość; proces kompresji może prowadzić do utraty informacji o mikropęknięciach.
 	* Zróżnicowanie sprzętowe: Zdjęcia pochodzące z różnych aparatów RTG mogą różnić się kontrastem i poziomem szumów, co wymaga zastosowania zaawansowanej augmentacji danych (w kodzie użyto ColorJitter oraz RandomRotation).
 	* Dodaliśmy również balansowanie klas, z powodu nieproporcjonalnej liczby zdjęć kończyn złamanych do zdrowych - funkcja „balance_dataset” rozwiązuje ten problem i pozwala nam uniknąć stronniczości modelu.
@@ -97,7 +97,7 @@ Macierz pomyłek dla tej architektury wygląda następująco:
 
 * False Negatives (FN): 89 - Model przeoczył złamanie w 89 przypadkach, klasyfikując je jako normę.
 
-# Na podstawie powyższych danych możemy wyliczyć skuteczność modelu:
+### Na podstawie powyższych danych możemy wyliczyć skuteczność modelu:
 * Accuracy (Dokładność ogólna): ~80,8%
 * Suma poprawnych diagnoz (553) podzielona przez wszystkie przypadki (684). Wynik powyżej 80% jest solidną bazą dla Proof of Concept.
 * Recall / Sensitivity (Czułość): ~74,0%
